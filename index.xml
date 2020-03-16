@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AMI - Automatic Misogyny Identification - EVALITA 2020</title>
+    <link>https://amievalita2020.github.io/</link>
+      <atom:link href="https://amievalita2020.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <description>AMI - Automatic Misogyny Identification - EVALITA 2020</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 01 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>AMI - Automatic Misogyny Identification - EVALITA 2020</title>
+      <link>https://amievalita2020.github.io/</link>
+    </image>
+    
+    <item>
+      <title>Do you AMI?</title>
+      <link>https://amievalita2020.github.io/do_you_ami/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://amievalita2020.github.io/do_you_ami/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>How to partecipate</title>
+      <link>https://amievalita2020.github.io/data/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://amievalita2020.github.io/data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>How to partecipate</title>
+      <link>https://amievalita2020.github.io/evaluation_and_results/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://amievalita2020.github.io/evaluation_and_results/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>How to partecipate</title>
+      <link>https://amievalita2020.github.io/how_to_partecipate/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://amievalita2020.github.io/how_to_partecipate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>How to partecipate</title>
+      <link>https://amievalita2020.github.io/important_dates/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://amievalita2020.github.io/important_dates/</guid>
+      <description>&lt;p&gt;If you want to participate to the AMI@Evalita-2018 shared task, please join the Google Group amievalita2018. AMI-Datasets, AMI-Communications, AMI-Questions/Answers and AMI-Guidelines will be spread through our Google Group.&lt;/p&gt;
+&lt;p&gt;Participants will be required to submit their runs and to provide a technical report that should include a brief description of their approach, focusing on the adopted algorithms, models and resources, a summary of their experiments, and an analysis of the obtained results.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
