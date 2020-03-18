@@ -2,8 +2,8 @@
   "name": "AMI - Automatic Misogyny Identification - EVALITA 2020",
   "short_name": "AMI - Automatic Misogyny Identification - EVALITA 2020",
   "lang": "en-us",
-  "theme_color": "#2962ff",
-  "background_color": "#2962ff",
+  "theme_color": "#EF525B",
+  "background_color": "#EF525B",
   "icons": [{
     "src": "/images/icon_hu60a1353cd2c2a2b42918571205f8be8d_42889_192x192_fill_lanczos_center_2.png",
     "sizes": "192x192",
