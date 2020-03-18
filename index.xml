@@ -5,12 +5,22 @@
     <link>https://amievalita2020.github.io/</link>
       <atom:link href="https://amievalita2020.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>AMI - Automatic Misogyny Identification - EVALITA 2020</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 01 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Debora Nozza, 2020</copyright><lastBuildDate>Tue, 01 Jan 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>AMI - Automatic Misogyny Identification - EVALITA 2020</title>
       <link>https://amievalita2020.github.io/</link>
     </image>
+    
+    <item>
+      <title>About / Contact</title>
+      <link>https://amievalita2020.github.io/contact/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://amievalita2020.github.io/contact/</guid>
+      <description>&lt;p&gt;If you have any specific question about the AMI shared task, we may ask you to let us know through the Google Group amievalita2018 .&lt;/p&gt;
+&lt;p&gt;For any other question that do not directly concern the shared task, please contact us at &lt;a href=&#34;mailto:fersini@disco.unimib.it&#34;&gt;fersini@disco.unimib.it&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Do you AMI?</title>

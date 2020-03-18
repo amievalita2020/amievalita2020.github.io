@@ -35,10 +35,13 @@
   
   
   
-  <meta name="theme-color" content="#2962ff">
+  <meta name="theme-color" content="#3f51b5">
   
 
   
+  
+  
+  <script src="/js/mathjax-config.js"></script>
   
 
   
@@ -168,9 +171,9 @@
 
       
       
-        
-      
 
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
       
     
       
@@ -198,6 +201,44 @@
   
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159440078-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-159440078-2', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
 
 
   
@@ -260,7 +301,7 @@
   
   
   
-  "telephone": "888 888 88 88",
+  
   "url": "https://amievalita2020.github.io/"
 }
 </script>
@@ -498,16 +539,9 @@
         
         
         
-          
-          
-          
-            
-          
-          
-        
 
         <li class="nav-item">
-          <a class="nav-link " href="/#contact" data-target="#contact"><span>Organizers and Contacts</span></a>
+          <a class="nav-link " href="/contact"><span>Organizers and Contacts</span></a>
         </li>
 
         
@@ -869,6 +903,8 @@
     
     
     
+      
+    
     
     
     
@@ -877,7 +913,7 @@
     
     <li>
       <a href="http://www.mind.disco.unimib.it/gallery/index.asp?cat=282&amp;level=2&amp;lang=en" target="_blank" rel="noopener">
-        <i class="ai ai-user"></i>
+        <i class="fas fa-user"></i>
       </a>
     </li>
   
@@ -975,6 +1011,23 @@
       </a>
     </li>
   
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="http://dnozza.github.io" target="_blank" rel="noopener">
+        <i class="fas fa-user"></i>
+      </a>
+    </li>
+  
 </ul>
 
       
@@ -1038,6 +1091,8 @@
     
     
     
+      
+    
     
     
     
@@ -1046,7 +1101,7 @@
     
     <li>
       <a href="http://personales.upv.es/prosso/" target="_blank" rel="noopener">
-        <i class="ai ai-user"></i>
+        <i class="fas fa-user"></i>
       </a>
     </li>
   
@@ -1177,7 +1232,7 @@
   
 
   <p class="powered-by">
-    
+    © Debora Nozza, 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

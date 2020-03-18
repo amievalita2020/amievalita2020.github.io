@@ -36,10 +36,13 @@ Participants will be required to submit their runs and to provide a technical re
   
   
   
-  <meta name="theme-color" content="#2962ff">
+  <meta name="theme-color" content="#3f51b5">
   
 
   
+  
+  
+  <script src="/js/mathjax-config.js"></script>
   
 
   
@@ -169,9 +172,9 @@ Participants will be required to submit their runs and to provide a technical re
 
       
       
-        
-      
 
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
       
     
       
@@ -199,6 +202,44 @@ Participants will be required to submit their runs and to provide a technical re
   
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159440078-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-159440078-2', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
 
 
   
@@ -473,16 +514,9 @@ Participants will be required to submit their runs and to provide a technical re
         
         
         
-          
-          
-          
-            
-          
-          
-        
 
         <li class="nav-item">
-          <a class="nav-link " href="/#contact"><span>Organizers and Contacts</span></a>
+          <a class="nav-link " href="/contact"><span>Organizers and Contacts</span></a>
         </li>
 
         
@@ -724,7 +758,7 @@ Participants will be required to submit their runs and to provide a technical re
   
 
   <p class="powered-by">
-    
+    © Debora Nozza, 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

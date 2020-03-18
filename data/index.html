@@ -35,10 +35,13 @@
   
   
   
-  <meta name="theme-color" content="#2962ff">
+  <meta name="theme-color" content="#3f51b5">
   
 
   
+  
+  
+  <script src="/js/mathjax-config.js"></script>
   
 
   
@@ -168,9 +171,9 @@
 
       
       
-        
-      
 
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
       
     
       
@@ -198,6 +201,44 @@
   
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159440078-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-159440078-2', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
 
 
   
@@ -471,16 +512,9 @@
         
         
         
-          
-          
-          
-            
-          
-          
-        
 
         <li class="nav-item">
-          <a class="nav-link " href="/#contact"><span>Organizers and Contacts</span></a>
+          <a class="nav-link " href="/contact"><span>Organizers and Contacts</span></a>
         </li>
 
         
@@ -553,7 +587,7 @@
   
   
 
-  <section id="how_to_partecipate" class="home-section wg-blank   "  >
+  <section id="description" class="home-section wg-blank   "  >
     <div class="container">
       
 
@@ -561,13 +595,257 @@
 <div class="row">
   
     <div class="col-12 col-lg-4 section-heading">
-      <h1>How to participate</h1>
+      <h1>Description</h1>
       
     </div>
     <div class="col-12 col-lg-8">
-      <p>If you want to participate to the AMI@Evalita-2020 shared task, please join the Google Group 
-<a href="">amievalita2020</a>. AMI-Datasets, AMI-Communications, AMI-Questions/Answers and AMI-Guidelines will be spread through our Google Group.</p>
-<p>Participants will be required to submit their runs and to provide a technical report that should include a brief description of their approach, focusing on the adopted algorithms, models and resources, a summary of their experiments, and an analysis of the obtained results.</p>
+      <p>The data that will be provided to the participants for the shared task comprises a <em>raw dataset</em> and a <em>synthetic dataset</em> for measuring bias.</p>
+<ul>
+<li>
+<p>The <strong>raw dataset</strong> is a balanced dataset of tweets manually labelled according to two levels:</p>
+<ul>
+<li>Misogyny: Misogyny (1) vs Not Misogyny (0)</li>
+<li>Aggressiveness: Aggressive (1) vs Not Aggressive (0)</li>
+</ul>
+</li>
+<li>
+<p>The <strong>synthetic dataset</strong>, for measuring the presence of unintended bias, contains template-generated text labelled according to:</p>
+<ul>
+<li>Misogyny: Misogyny (1) vs Not Misogyny (0)</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="example - raw" class="home-section wg-blank   "  >
+    <div class="container">
+      
+
+
+<div class="row">
+  
+    <div class="col-12 col-lg-4 section-heading">
+      <h1>Data Example - Raw dataset</h1>
+      
+    </div>
+    <div class="col-12 col-lg-8">
+      <table>
+<thead>
+<tr>
+<th>Misogynous</th>
+<th>Aggressiveness</th>
+<th>Text</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>Stupida tr**a! Meriti di morire</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>Le ragazze sono tutte pu***ne</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>@chiellini sei una cagna</td>
+</tr>
+</tbody>
+</table>
+<p>⚠️ The aggressivity of a tweet is labelled only if the tweet is misogynous.</p>
+
+    </div>
+  
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="example - synt" class="home-section wg-blank   "  >
+    <div class="container">
+      
+
+
+<div class="row">
+  
+    <div class="col-12 col-lg-4 section-heading">
+      <h1>Data Example - Synthetic dataset</h1>
+      
+    </div>
+    <div class="col-12 col-lg-8">
+      <table>
+<thead>
+<tr>
+<th>Misogynous</th>
+<th>Text</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><ins>donne</ins> dovrebbero essere protette</td>
+</tr>
+<tr>
+<td>0</td>
+<td><ins>ragazze</ins> dovrebbero essere protette</td>
+</tr>
+<tr>
+<td>1</td>
+<td><ins>donne</ins> dovrebbero essere uccise</td>
+</tr>
+<tr>
+<td>1</td>
+<td><ins>ragazze</ins> dovrebbero essere uccise</td>
+</tr>
+<tr>
+<td>0</td>
+<td>apprezziamo <ins>donne</ins></td>
+</tr>
+<tr>
+<td>0</td>
+<td>apprezziamo <ins>ragazze</ins></td>
+</tr>
+<tr>
+<td>1</td>
+<td>picchiamo <ins>donne</ins></td>
+</tr>
+<tr>
+<td>1</td>
+<td>picchiamo <ins>ragazze</ins></td>
+</tr>
+</tbody>
+</table>
+<p>Underlined words correspond to the <ins><strong>identity terms</strong></ins> for which we aim to measure the unintended bias. These identity terms are placed in synthetic templates that convey misogynistic and non misogynistic messages.</p>
+
+    </div>
+  
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="training_test" class="home-section wg-blank   "  >
+    <div class="container">
+      
+
+
+<div class="row">
+  
+    <div class="col-12 col-lg-4 section-heading">
+      <h1>Training and Test</h1>
+      
+    </div>
+    <div class="col-12 col-lg-8">
+      <p>The datasets and their specific annotations are relevant with respect to the task. In particular:</p>
+<ul>
+<li>
+<p><strong>Subtask A</strong>: we will consider only the <strong>raw dataset</strong> and the annotations for the fields “misogynous” and &ldquo;aggressiveness&rdquo;.</p>
+</li>
+<li>
+<p><strong>Subtask B</strong>: we will consider the <strong>raw dataset</strong> and the <strong>synthetic dataset</strong> only considering the annotations for the field “misogynous”.</p>
+</li>
+</ul>
+<p>The training and the testing set will be made available through the AMI Google Group 
+<a href="">amievalita2020</a>.</p>
 
     </div>
   
@@ -691,7 +969,7 @@
   
 
   <p class="powered-by">
-    
+    © Debora Nozza, 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

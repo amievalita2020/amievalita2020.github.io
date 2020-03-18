@@ -35,10 +35,13 @@
   
   
   
-  <meta name="theme-color" content="#2962ff">
+  <meta name="theme-color" content="#3f51b5">
   
 
   
+  
+  
+  <script src="/js/mathjax-config.js"></script>
   
 
   
@@ -168,9 +171,9 @@
 
       
       
-        
-      
 
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
       
     
       
@@ -198,6 +201,44 @@
   
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159440078-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-159440078-2', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
 
 
   
@@ -468,16 +509,9 @@
         
         
         
-          
-          
-          
-            
-          
-          
-        
 
         <li class="nav-item">
-          <a class="nav-link " href="/#contact"><span>Organizers and Contacts</span></a>
+          <a class="nav-link " href="/contact"><span>Organizers and Contacts</span></a>
         </li>
 
         
@@ -593,6 +627,8 @@
         
         
         
+          
+        
         
         
         
@@ -601,7 +637,7 @@
         
         <li>
           <a href="http://personales.upv.es/prosso/" target="_blank" rel="noopener">
-            <i class="ai ai-user big-icon"></i>
+            <i class="fas fa-user big-icon"></i>
           </a>
         </li>
         
@@ -614,7 +650,11 @@
     
     
 
-    <p><strong>Paolo Rosso</strong> is full professor at the Universitat Politecnica de Valencia, Spain where he is also member of the PRHLT research center. His research interests focus mainly on author profiling, irony detection, fake reviews detection, plagiarism detection, and recently hate speech and fake news detection. Since 2009 he has been involved in the organisation of PAN benchmark activities at CLEF and at FIRE evaluation forums, mainly on plagiarism / text reuse detection and author profiling. At SemEval he has been co-organiser of shared tasks on sentiment analysis of figurative language in Twitter (2015), and on multilingual detection of hate speech against immigrants and women in Twitter (2019). He is co-ordinator of the activities of IberLEF evaluation forum. He has been PI of national and international research projects funded by EC and U.S. Army Research Office. At the moment, in collaboration with Carnegie Mellon University, he is involved in a project funded by Qatar National Research Fund on author profiling for cyber-security. He serves as deputy steering committee chair for the CLEF conference and as associate editor for the Information Processing &amp; Management journal. He has been chair of *SEM-2015, and organisation chair of CERI-2012, CLEF-2013 and EACL-2017. He is the author of 400+ papers, published in journals, book chapters, conference and workshop proceedings.</p>
+    <p><strong>Paolo Rosso</strong> is full professor at the 
+<a href="http://www.upv.es/index-en.html" target="_blank" rel="noopener">Universitat Politecnica de Valencia, Spain</a> where he is also member of the 
+<a href="https://www.prhlt.upv.es/wp/" target="_blank" rel="noopener">PRHLT research center</a>. His research interests focus mainly on author profiling, irony detection, fake reviews detection, plagiarism detection, and recently hate speech and fake news detection.</p>
+<p>Since 2009 he has been involved in the organisation of PAN benchmark activities at CLEF and at FIRE evaluation forums, mainly on plagiarism / text reuse detection and author profiling. At SemEval he has been co-organiser of shared tasks on sentiment analysis of figurative language in Twitter (2015), and on multilingual detection of hate speech against immigrants and women in Twitter (2019).</p>
+<p>He is co-ordinator of the activities of IberLEF evaluation forum. He has been PI of national and international research projects funded by EC and U.S. Army Research Office. At the moment, in collaboration with Carnegie Mellon University, he is involved in a project funded by Qatar National Research Fund on author profiling for cyber-security. He serves as deputy steering committee chair for the CLEF conference and as associate editor for the Information Processing &amp; Management journal. He has been chair of *SEM-2015, and organisation chair of CERI-2012, CLEF-2013 and EACL-2017. He is the author of 400+ papers, published in journals, book chapters, conference and workshop proceedings.</p>
 
 
     <div class="row">
@@ -748,7 +788,7 @@
   
 
   <p class="powered-by">
-    
+    © Debora Nozza, 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

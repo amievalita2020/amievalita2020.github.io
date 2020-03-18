@@ -35,10 +35,13 @@
   
   
   
-  <meta name="theme-color" content="#2962ff">
+  <meta name="theme-color" content="#3f51b5">
   
 
   
+  
+  
+  <script src="/js/mathjax-config.js"></script>
   
 
   
@@ -168,9 +171,9 @@
 
       
       
-        
-      
 
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
       
     
       
@@ -198,6 +201,44 @@
   
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159440078-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-159440078-2', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
 
 
   
@@ -471,16 +512,9 @@
         
         
         
-          
-          
-          
-            
-          
-          
-        
 
         <li class="nav-item">
-          <a class="nav-link " href="/#contact"><span>Organizers and Contacts</span></a>
+          <a class="nav-link " href="/contact"><span>Organizers and Contacts</span></a>
         </li>
 
         
@@ -566,13 +600,21 @@
     </div>
     <div class="col-12 col-lg-8">
       <p>Unfortunately nowadays more and more episodes of harassments against women arose and misogynistic comments can be found in social media, where misogynists hide themselves behind the security of the anonymity. Therefore, <strong>it is very important to identify misogyny in social media</strong>. Recent investigations studied how the misogyny phenomenon takes place, for example as unjustified slurring or as stereotyping of the role/body of a woman (i.e. the hashtag #getbacktokitchen), as described in the book by Poland
-<a href="#ref1">[1]</a>.</p>
-<p>A preliminary research work was conducted by Hewitt et al. 
+<a href="#ref1">[1]</a>. 
+A preliminary research work was conducted by Hewitt et al. 
 <a href="#ref2">[2]</a> as first attempt of manually classification of misogynous tweets. 
 Automatic misogyny identification in Social Media has been firstly investigated by Anzovino et al. 
-<a href="#ref3">[3]</a>. The same shared task has been organized in occasion of 
-<a href="https://sites.google.com/view/ibereval-2018" target="_blank" rel="noopener">IberEval-2018</a> and 
-<a href="http://www.evalita.it/2018" target="_blank" rel="noopener">Evalita 2018</a>.</p>
+<a href="#ref3">[3]</a>.</p>
+<p>However, when training a supervised model, <strong>it is important to guarantee the fairness of the model</strong> and therefore to reduce the error due to <strong>unintended bias</strong> 
+<a href="#ref4">[4]</a>, i.e. the attitude of a  model to perform better on comments about some groups than for comments about others groups. As shown in 
+<a href="#ref5">[5]</a>, when addressing misogyny detection problems, this biased behaviour of a model on new posts can be observed when processing sentences containing specific <em>identity terms</em> that likely conveyed misogyny in the training data, e.g. &lsquo;&lsquo;girlfriend&rsquo;&rsquo; and &lsquo;&lsquo;wife&rsquo;'.</p>
+<p>The shared task has been organized in occasion of 
+<a href="https://sites.google.com/view/ibereval-2018" target="_blank" rel="noopener">IberEval-2018</a>
+<a href="#ref6">[6]</a>, 
+<a href="http://www.evalita.it/2018" target="_blank" rel="noopener">Evalita 2018</a>
+<a href="#ref7">[7]</a> and as a part of the HatEval shared task at 
+<a href="http://alt.qcri.org/semeval2019/" target="_blank" rel="noopener">SemEval 2019</a>
+<a href="#ref8">[8]</a>.</p>
 
     </div>
   
@@ -627,7 +669,7 @@ Automatic misogyny identification in Social Media has been firstly investigated 
 <ul>
 <li>
 <p><strong>Subtask A - Misogyny &amp; Aggressive Behaviour Identification</strong>: 
-a system must recognize if a text is mysogynous or not, and in case of misogyny, if it expresses an aggressive attitude.</p>
+a system must recognize if a text is misogynous or not, and in case of misogyny, if it expresses an aggressive attitude.</p>
 </li>
 <li>
 <p><strong>Subtask B - Unbiased Misogyny Identification</strong>: a system must discriminate misogynistic contents from the non-misogynistic ones, while guaranteeing that the induced model is unbiased.</p>
@@ -683,9 +725,21 @@ a system must recognize if a text is mysogynous or not, and in case of misogyny,
       
     </div>
     <div class="col-12 col-lg-8">
-      <p><a name="ref1">1.</a> Poland, B. (2016). Haters: Harassment, Abuse, and Violence Online. University of Nebraska Press.</p>
-<p><a name="ref2">2.</a> Hewitt, S., Tiropanis, T., &amp; Bokhove, C. (2016). The problem of identifying misogynist language on Twitter (and other online social spaces). In Proceedings of the 8th ACM Conference on Web Science, pp. 333-335.</p>
-<p><a name="ref3">3.</a> Anzovino M., Fersini E., Rosso P. (2018) Automatic Identification and Classification of Misogynistic Language on Twitter. In: Silberztein M., Atigui F., Kornyshova E., Métais E., Meziane F. (eds) Natural Language Processing and Information Systems. NLDB 2018. Lecture Notes in Computer Science, vol 10859.</p>
+      <p><a name="ref1">1.</a> Poland, B. (2016). <em>Haters: Harassment, Abuse, and Violence Online</em>. University of Nebraska Press.</p>
+<p><a name="ref2">2.</a> Hewitt, S., Tiropanis, T., and Bokhove, C. (2016). 
+<a href="https://dl.acm.org/doi/10.1145/2908131.2908183" target="_blank" rel="noopener"><em>The problem of identifying misogynist language on Twitter (and other online social spaces)</em></a>. In Proceedings of the 8th ACM Conference on Web Science, pp. 333-335.</p>
+<p><a name="ref3">3.</a> Anzovino M., Fersini E., and Rosso P. (2018). 
+<a href="https://link.springer.com/chapter/10.1007/978-3-319-91947-8_6" target="_blank" rel="noopener"><em>Automatic Identification and Classification of Misogynistic Language on Twitter</em></a>. In Proceedings of the International Conference on Applications of Natural Language to Information Systems (NLDB 2018). Lecture Notes in Computer Science vol 10859, pp. 57-64.</p>
+<p><a name="ref4">4.</a> Dixon L., Li J., Sorensen J., Thain N.,  and Vasserman L. (2018).  
+<a href="https://www.aies-conference.com/2018/contents/papers/main/AIES_2018_paper_9.pdf" target="_blank" rel="noopener"><em>Measuring and mitigating unintended bias in text classification</em></a>.  In Proceedings of the 2018 AAAI/ACM Conference on AI, Ethics, and Society, pp. 67–73. ACM 2018.</p>
+<p><a name="ref5">5.</a> Nozza D., Volpetti C., and Fersini E. (2019). 
+<a href="https://dl.acm.org/doi/10.1145/3350546.3352512" target="_blank" rel="noopener"><em>Unintended Bias in Misogyny Detection</em></a>. In Proceedings of the IEEE/WIC/ACM International Conference on Web Intelligence (WI &lsquo;19), pp. 149–15.</p>
+<p><a name="ref6">6.</a> Fersini E., Anzovino M., and Rosso P. (2018).  
+<a href="http://ceur-ws.org/Vol-2150/overview-AMI.pdf" target="_blank" rel="noopener"><em>Overview of the task on Automatic Misogyny Identification at IberEval</em></a>. In Proceedings of the 3rd Workshop on Evaluation of Human Language Technologies for Iberian Languages (IberEval 2018). CEUR Workshop Proceedings, pp. 214-228.</p>
+<p><a name="ref7">7.</a> Fersini E., Nozza D., and Rosso P. (2018). 
+<a href="http://ceur-ws.org/Vol-2263/paper009.pdf" target="_blank" rel="noopener"><em>Overview of the EVALITA 2018 Task on Automatic Misogyny Identification (AMI)</em></a>. In Proceedings of 6th Evaluation Campaign of Natural Language Processing and Speech Tools for Italian. Final Workshop (EVALITA 2018). CEUR Workshop Proceedings.</p>
+<p><a name="ref8">8.</a> Basile V., Bosco C., Fersini E., Nozza D., Patti V., Rangel Pardo F.M., Rosso P., and Sanguinetti M. (2019). 
+<a href="https://www.aclweb.org/anthology/S19-2007.pdf" target="_blank" rel="noopener"><em>SemEval-2019 Task 5: Multilingual Detection of Hate Speech Against Immigrants and Women in Twitter</em></a>. In Proceedings of the 13th International Workshop on Semantic Evaluation , pp. 54&ndash;63.</p>
 
     </div>
   
@@ -809,7 +863,7 @@ a system must recognize if a text is mysogynous or not, and in case of misogyny,
   
 
   <p class="powered-by">
-    
+    © Debora Nozza, 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

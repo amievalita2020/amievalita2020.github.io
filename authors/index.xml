@@ -5,7 +5,7 @@
     <link>https://amievalita2020.github.io/authors/</link>
       <atom:link href="https://amievalita2020.github.io/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Debora Nozza, 2020</copyright>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Authors</title>
@@ -34,9 +34,11 @@
       <description>&lt;p&gt;&lt;strong&gt;Debora Nozza&lt;/strong&gt; is a Postdoctoral Research Fellow at 
 &lt;a href=&#34;https:%5c%5cwww.bocconi.it/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bocconi University&lt;/a&gt;. Her research interests mainly focus on Natural Language Processing, specifically on the detection and counter-acting of hate speech and algorithmic bias on Social Media data in multilingual context.
 She was Area Chair at the 14th Women in 
-&lt;a href=&#34;https://wimlworkshop.org/2019/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Machine Learning Workshop (WiML)&lt;/a&gt; at NeurIPS 2019 and active member of the Milan Women in Machine Learning and Data Science community.
+&lt;a href=&#34;https://wimlworkshop.org/2019/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Machine Learning Workshop (WiML)&lt;/a&gt; at NeurIPS 2019 and active member of the 
+&lt;a href=&#34;https://www.meetup.com/it-IT/Milan-Women-in-Machine-Learning-and-Data-Science/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Milan Women in Machine Learning and Data Science community&lt;/a&gt;.
 She was one of the organizers of the task on Automatic Misogyny Identification (AMI) at 
-&lt;a href=&#34;%5curl%7bhttp://www.evalita.it/2018%7d&#34;&gt;Evalita 2018&lt;/a&gt;, and one of the organizers of the HatEval Task 5 at [SemEval 2019]((\url{http://alt.qcri.org/semeval2019/}) on multilingual detection of hate speech against immigrants and women in Twitter.&lt;/p&gt;
+&lt;a href=&#34;%5curl%7bhttp://www.evalita.it/2018%7d&#34;&gt;Evalita 2018&lt;/a&gt;, and one of the organizers of the HatEval Task 5 at 
+&lt;a href=&#34;http://alt.qcri.org/semeval2019/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SemEval 2019&lt;/a&gt; on multilingual detection of hate speech against immigrants and women in Twitter.&lt;/p&gt;
 </description>
     </item>
     
@@ -45,7 +47,11 @@ She was one of the organizers of the task on Automatic Misogyny Identification (
       <link>https://amievalita2020.github.io/authors/rosso_paolo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://amievalita2020.github.io/authors/rosso_paolo/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Paolo Rosso&lt;/strong&gt; is full professor at the Universitat Politecnica de Valencia, Spain where he is also member of the PRHLT research center. His research interests focus mainly on author profiling, irony detection, fake reviews detection, plagiarism detection, and recently hate speech and fake news detection. Since 2009 he has been involved in the organisation of PAN benchmark activities at CLEF and at FIRE evaluation forums, mainly on plagiarism / text reuse detection and author profiling. At SemEval he has been co-organiser of shared tasks on sentiment analysis of figurative language in Twitter (2015), and on multilingual detection of hate speech against immigrants and women in Twitter (2019). He is co-ordinator of the activities of IberLEF evaluation forum. He has been PI of national and international research projects funded by EC and U.S. Army Research Office. At the moment, in collaboration with Carnegie Mellon University, he is involved in a project funded by Qatar National Research Fund on author profiling for cyber-security. He serves as deputy steering committee chair for the CLEF conference and as associate editor for the Information Processing &amp;amp; Management journal. He has been chair of *SEM-2015, and organisation chair of CERI-2012, CLEF-2013 and EACL-2017. He is the author of 400+ papers, published in journals, book chapters, conference and workshop proceedings.&lt;/p&gt;
+      <description>&lt;p&gt;&lt;strong&gt;Paolo Rosso&lt;/strong&gt; is full professor at the 
+&lt;a href=&#34;http://www.upv.es/index-en.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Universitat Politecnica de Valencia, Spain&lt;/a&gt; where he is also member of the 
+&lt;a href=&#34;https://www.prhlt.upv.es/wp/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PRHLT research center&lt;/a&gt;. His research interests focus mainly on author profiling, irony detection, fake reviews detection, plagiarism detection, and recently hate speech and fake news detection.&lt;/p&gt;
+&lt;p&gt;Since 2009 he has been involved in the organisation of PAN benchmark activities at CLEF and at FIRE evaluation forums, mainly on plagiarism / text reuse detection and author profiling. At SemEval he has been co-organiser of shared tasks on sentiment analysis of figurative language in Twitter (2015), and on multilingual detection of hate speech against immigrants and women in Twitter (2019).&lt;/p&gt;
+&lt;p&gt;He is co-ordinator of the activities of IberLEF evaluation forum. He has been PI of national and international research projects funded by EC and U.S. Army Research Office. At the moment, in collaboration with Carnegie Mellon University, he is involved in a project funded by Qatar National Research Fund on author profiling for cyber-security. He serves as deputy steering committee chair for the CLEF conference and as associate editor for the Information Processing &amp;amp; Management journal. He has been chair of *SEM-2015, and organisation chair of CERI-2012, CLEF-2013 and EACL-2017. He is the author of 400+ papers, published in journals, book chapters, conference and workshop proceedings.&lt;/p&gt;
 </description>
     </item>
     

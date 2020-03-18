@@ -35,10 +35,13 @@
   
   
   
-  <meta name="theme-color" content="#2962ff">
+  <meta name="theme-color" content="#3f51b5">
   
 
   
+  
+  
+  <script src="/js/mathjax-config.js"></script>
   
 
   
@@ -168,9 +171,9 @@
 
       
       
-        
-      
 
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
       
     
       
@@ -198,6 +201,44 @@
   
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159440078-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-159440078-2', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
 
 
   
@@ -471,16 +512,9 @@
         
         
         
-          
-          
-          
-            
-          
-          
-        
 
         <li class="nav-item">
-          <a class="nav-link " href="/#contact"><span>Organizers and Contacts</span></a>
+          <a class="nav-link " href="/contact"><span>Organizers and Contacts</span></a>
         </li>
 
         
@@ -553,7 +587,7 @@
   
   
 
-  <section id="how_to_partecipate" class="home-section wg-blank   "  >
+  <section id="evaluation" class="home-section wg-blank   "  >
     <div class="container">
       
 
@@ -561,13 +595,140 @@
 <div class="row">
   
     <div class="col-12 col-lg-4 section-heading">
-      <h1>How to participate</h1>
+      <h1>Evaluation Metrics</h1>
       
     </div>
     <div class="col-12 col-lg-8">
-      <p>If you want to participate to the AMI@Evalita-2020 shared task, please join the Google Group 
-<a href="">amievalita2020</a>. AMI-Datasets, AMI-Communications, AMI-Questions/Answers and AMI-Guidelines will be spread through our Google Group.</p>
-<p>Participants will be required to submit their runs and to provide a technical report that should include a brief description of their approach, focusing on the adopted algorithms, models and resources, a summary of their experiments, and an analysis of the obtained results.</p>
+      <p>Each participating team will initially have access only to the training data (both raw and synthetic data). Later, we will release the unlabelled test data (both raw and synthetic data).  After the assessment, the labels for the test data will be released. </p>
+<p>The evaluation will be performed according to the following metric:</p>
+<ul>
+<li><strong>SubTask A</strong>: The ranking will be computed by averaging the $F_1$ measures estimated for the Misogynous and Aggressiveness classes.</li>
+</ul>
+<center>$ score_A = \frac{F_1(\text{Misogynous}) + F_1(\text{Aggressiveness})}{2} $ </center>
+<ul>
+<li><strong>SubTask B</strong>: The ranking will be computed by the weighted combination of AUC computed on the test raw dataset AUC<sub>raw</sub> and three per-term AUC-based bias scores computed on the synthetic dataset  (AUC<sub>Subgroup</sub>, AUC<sub>BPSN</sub>, AUC<sub>BNSP</sub>).
+Let $s$ be an identity-term and $N$ be the number of identity-terms, the evaluation will be performed according to the following metric:</li>
+</ul>
+<center>$ score_B = \frac{1}{2} \text{AUC}_{\text{raw}} + \frac{1}{2} \frac{\sum_s\text{AUC}_{\text{Subgroup}}(s) +  \sum_s\text{AUC}_{\text{BPSN}}(s) + \sum_s\text{AUC}_{\text{BNSP}}(s) }{N} $</center> 
+
+    </div>
+  
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="bias_metrics" class="home-section wg-blank   "  >
+    <div class="container">
+      
+
+
+<div class="row">
+  
+    <div class="col-12 col-lg-4 section-heading">
+      <h1>Unintended Bias Metrics</h1>
+      
+    </div>
+    <div class="col-12 col-lg-8">
+      <p>Unintended bias can be uncovered by looking at differences in the score distributions between data mentioning a specific identity-term $s$ (<strong>subgroup</strong> $s$ distribution) and the rest (<strong>background</strong> distribution). Following [
+<a href="#ref1">1</a>, 
+<a href="#ref2">2</a>], the three per-term AUC-based bias scores are related to specific subgroups as follows:</p>
+<ul>
+<li>
+<p>AUC<sub>Subgroup</sub>($s$): calculates AUC only on the data within the subgroup $s$. This represents model understanding and separability within the subgroup itself. <em>A low value in this metric means the model does a poor job of distinguishing between misogynous and non-misogynous comments that mention the identity</em>.</p>
+</li>
+<li>
+<p>AUC<sub>BPSN</sub>($s$): Background Positive Subgroup Negative (BPSN) calculates AUC on the misogynous examples from the background and the non-misogynous examples from the subgroup. <em>A low value in this metric means that the model confuses non-misogynous examples that mention the identity-term with misogynous examples that do not, likely meaning that the model predicts higher misogynous scores than it should for non-misogynous examples mentioning the identity-term</em>.</p>
+</li>
+<li>
+<p>AUC<sub>BNSP</sub>($s$): Background Negative Subgroup Positive (BNSP) calculates AUC on the non-misogynous examples from the background and the misogynous examples from the subgroup. <em>A low value here means that the model confuses misogynous examples that mention the identity with non-misogynous examples that do not, likely meaning that the model predicts lower misogynous scores than it should for misogynous examples mentioning the identity</em>.</p>
+</li>
+</ul>
+
+    </div>
+  
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="reference" class="home-section wg-blank   "  >
+    <div class="container">
+      
+
+
+<div class="row">
+  
+    <div class="col-12 col-lg-4 section-heading">
+      <h1>Reference</h1>
+      
+    </div>
+    <div class="col-12 col-lg-8">
+      <p><a name="ref1">1.</a> Borkan D., Dixon L., Sorensen J., Thain N., and Vasserman L. (2019). 
+<a href="https://arxiv.org/pdf/1903.04561.pdf" target="_blank" rel="noopener">Nuanced Metrics for Measuring Unintended Bias with Real Data for
+Text Classification</a>. In Companion of The 2019 World Wide Web Conference (WWW 2019). ACM.</p>
+<p><a name="ref2">2.</a>  
+<a href="https://www.kaggle.com/c/jigsaw-unintended-bias-in-toxicity-classification/overview/evaluation" target="_blank" rel="noopener">Jigsaw Unintended Bias in Toxicity Classification Kaggle Competition</a></p>
 
     </div>
   
@@ -691,7 +852,7 @@
   
 
   <p class="powered-by">
-    
+    © Debora Nozza, 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
