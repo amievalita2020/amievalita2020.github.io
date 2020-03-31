@@ -603,8 +603,14 @@
 <ul>
 <li>The <strong>raw dataset</strong> is a balanced dataset of tweets manually labelled according to two levels:
 <ul>
-<li>Misogyny: Misogyny (1) vs Not Misogyny (0)</li>
-<li>Aggressiveness: Aggressive (1) vs Not Aggressive (0)</li>
+<li><em>Misogynous</em>: defines if the tweet is misogynous or not misogynous; it takes values as $1$ if the tweet is misogynous, $0$ if the tweet is not misogynous.</li>
+<li><em>Aggressiveness</em>: denotes the subject of the misogynistic tweet; it takes value as:
+<ul>
+<li>$1$: denotes an aggressive misogynous tweet;</li>
+<li>$2$: denotes a non-aggressive misogynous tweet;</li>
+<li>$0$: if the tweet is not misogynous.</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -612,180 +618,10 @@
 <ul>
 <li>The <strong>synthetic dataset</strong>, for measuring the presence of unintended bias, contains template-generated text labelled according to:
 <ul>
-<li>Misogyny: Misogyny (1) vs Not Misogyny (0)</li>
+<li><em>Misogynous</em>: defines if the tweet is misogynous or not misogynous; it takes values as $1$ if the tweet is misogynous, $0$ if the tweet is not misogynous.</li>
 </ul>
 </li>
 </ul>
-
-    </div>
-  
-</div>
-
-    </div>
-  </section>
-
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-  
-
-  <section id="example - raw" class="home-section wg-blank   "  >
-    <div class="container">
-      
-
-
-<div class="row">
-  
-    <div class="col-12 col-lg-4 section-heading">
-      <h1>Data Example - Raw dataset</h1>
-      
-    </div>
-    <div class="col-12 col-lg-8">
-      <table>
-<thead>
-<tr>
-<th>Misogynous</th>
-<th>Aggressiveness</th>
-<th>Text</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>Stupida tr**a! Meriti di morire</td>
-</tr>
-<tr>
-<td>1</td>
-<td>0</td>
-<td>Le ragazze sono tutte pu***ne</td>
-</tr>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>@chiellini sei una cagna</td>
-</tr>
-</tbody>
-</table>
-<p>⚠️ The aggressivity of a tweet is labelled only if the tweet is misogynous.</p>
-
-    </div>
-  
-</div>
-
-    </div>
-  </section>
-
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-  
-
-  <section id="example - synt" class="home-section wg-blank   "  >
-    <div class="container">
-      
-
-
-<div class="row">
-  
-    <div class="col-12 col-lg-4 section-heading">
-      <h1>Data Example - Synthetic dataset</h1>
-      
-    </div>
-    <div class="col-12 col-lg-8">
-      <table>
-<thead>
-<tr>
-<th>Misogynous</th>
-<th>Text</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td><ins>donne</ins> dovrebbero essere protette</td>
-</tr>
-<tr>
-<td>0</td>
-<td><ins>ragazze</ins> dovrebbero essere protette</td>
-</tr>
-<tr>
-<td>1</td>
-<td><ins>donne</ins> dovrebbero essere uccise</td>
-</tr>
-<tr>
-<td>1</td>
-<td><ins>ragazze</ins> dovrebbero essere uccise</td>
-</tr>
-<tr>
-<td>0</td>
-<td>apprezziamo <ins>donne</ins></td>
-</tr>
-<tr>
-<td>0</td>
-<td>apprezziamo <ins>ragazze</ins></td>
-</tr>
-<tr>
-<td>1</td>
-<td>picchiamo <ins>donne</ins></td>
-</tr>
-<tr>
-<td>1</td>
-<td>picchiamo <ins>ragazze</ins></td>
-</tr>
-</tbody>
-</table>
-<p>Underlined words correspond to the <ins><strong>identity terms</strong></ins> for which we aim to measure the unintended bias. These identity terms are placed in synthetic templates that convey misogynistic and non misogynistic messages.</p>
 
     </div>
   
@@ -845,8 +681,177 @@
 <p><strong>Subtask B</strong>: we will consider the <strong>raw dataset</strong> and the <strong>synthetic dataset</strong> only considering the annotations for the field “misogynous”.</p>
 </li>
 </ul>
-<p>The training and the testing set will be made available through the AMI Google Group 
-<a href="https://groups.google.com/d/forum/amievalita2020" target="_blank" rel="noopener">amievalita2020</a>.</p>
+<p>The training and the testing set will be made available the 29th May 2020 and 4th Sep 2020 respectevely.</p>
+
+    </div>
+  
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="example - raw" class="home-section wg-blank   "  >
+    <div class="container">
+      
+
+
+<div class="row">
+  
+    <div class="col-12 col-lg-4 section-heading">
+      <h1>Data Example - Raw dataset</h1>
+      
+    </div>
+    <div class="col-12 col-lg-8">
+      <table>
+<thead>
+<tr>
+<th>Text</th>
+<th>Misogynous</th>
+<th>Aggressiveness</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stupida tr**a! Meriti di morire</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Le ragazze sono tutte pu***ne</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>@chiellini sei una cagna</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>⚠️ The aggressivity of a tweet is labelled only if the tweet is misogynous.</p>
+
+    </div>
+  
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="example - synt" class="home-section wg-blank   "  >
+    <div class="container">
+      
+
+
+<div class="row">
+  
+    <div class="col-12 col-lg-4 section-heading">
+      <h1>Data Example - Synthetic dataset</h1>
+      
+    </div>
+    <div class="col-12 col-lg-8">
+      <table>
+<thead>
+<tr>
+<th>Text</th>
+<th>Misogynous</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><ins>donne</ins> dovrebbero essere protette</td>
+<td>0</td>
+</tr>
+<tr>
+<td><ins>ragazze</ins> dovrebbero essere protette</td>
+<td>0</td>
+</tr>
+<tr>
+<td><ins>donne</ins> dovrebbero essere uccise</td>
+<td>1</td>
+</tr>
+<tr>
+<td><ins>ragazze</ins> dovrebbero essere uccise</td>
+<td>1</td>
+</tr>
+<tr>
+<td>apprezziamo <ins>donne</ins></td>
+<td>0</td>
+</tr>
+<tr>
+<td>apprezziamo <ins>ragazze</ins></td>
+<td>0</td>
+</tr>
+<tr>
+<td>picchiamo <ins>donne</ins></td>
+<td>1</td>
+</tr>
+<tr>
+<td>picchiamo <ins>ragazze</ins></td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Underlined words correspond to the <ins><strong>identity terms</strong></ins> for which we aim to measure the unintended bias. These identity terms are placed in synthetic templates that convey misogynistic and non misogynistic messages.</p>
 
     </div>
   
