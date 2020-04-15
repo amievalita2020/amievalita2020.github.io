@@ -603,12 +603,16 @@
 <ul>
 <li>The <strong>raw dataset</strong> is a balanced dataset of tweets manually labelled according to two levels:
 <ul>
-<li><em>Misogynous</em>: defines if the tweet is misogynous or not misogynous; it takes values as $1$ if the tweet is misogynous, $0$ if the tweet is not misogynous.</li>
+<li><em>Misogynous</em>: defines if a tweet is misogynous or not misogynous; it takes values:
+<ul>
+<li>$0$ if the tweet is not misogynous;</li>
+<li>$1$ if the tweet is misogynous.</li>
+</ul>
+</li>
 <li><em>Aggressiveness</em>: denotes the subject of the misogynistic tweet; it takes value as:
 <ul>
-<li>$1$: denotes an aggressive misogynous tweet;</li>
-<li>$2$: denotes a non-aggressive misogynous tweet;</li>
-<li>$0$: if the tweet is not misogynous.</li>
+<li>$0$ denotes a non-aggressive tweet (not misogynous tweets are labelled as 0 by default);</li>
+<li>$1$: if the tweet is aggressive.</li>
 </ul>
 </li>
 </ul>
@@ -618,7 +622,12 @@
 <ul>
 <li>The <strong>synthetic dataset</strong>, for measuring the presence of unintended bias, contains template-generated text labelled according to:
 <ul>
-<li><em>Misogynous</em>: defines if the tweet is misogynous or not misogynous; it takes values as $1$ if the tweet is misogynous, $0$ if the tweet is not misogynous.</li>
+<li><em>Misogynous</em>: defines if the tweet is misogynous or not misogynous; it takes values:
+<ul>
+<li>$0$ if the tweet is not misogynous;</li>
+<li>$1$ if the tweet is misogynous.</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -749,7 +758,7 @@
 <tr>
 <td>Le ragazze sono tutte pu***ne</td>
 <td>1</td>
-<td>2</td>
+<td>0</td>
 </tr>
 <tr>
 <td>@chiellini sei una cagna</td>
